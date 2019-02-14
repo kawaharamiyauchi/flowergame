@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "tkEngine/light/tkDirectionLight.h"
-
+#include "hoge.h"
 Game::Game()
 {
+	NewGO<hoge>(0, "asd");
 }
 
 
@@ -26,4 +27,10 @@ bool Game::Start()
 
 void Game::Update()
 {
+	CQuaternion addrot;
+	
+	m_skinModelRender->SetRotation(m_rotation);
+	position.x += Pad(0).GetLStickXF()*-2.0f;
+	
+	m_skinModelRender->SetPosition(position);
 }
